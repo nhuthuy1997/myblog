@@ -1,0 +1,29 @@
+{% extends 'mysite/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="container list-article">
+    <div class="clearfix"></div>
+    <div class="col-xs-12 article-wrapper">
+      {% for post in post_list %}
+        <article>
+          <div class="img-wrapper"><img src="{{ tag.images }}" alt="" /></div>
+          <div class="article-head">
+            <a href="#"><span class="title">{{ post.title }}</span></a>
+            <span class="sumary">sumary</span>
+          </div>
+          <div class="tags">
+            {% for tag in post.tags.all() %}
+              <span class="label label-{{ tag.get_color_display() }}">{{ tag.name }}</span>
+            {% endfor %}
+          </div>
+          <div class="clearfix"></div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="my-button red" id="top-button" onclick="topFunction()">
+    <div class="circle"></div>
+    <div class="icon">Up</div>
+  </div>
+{% endblock %}
