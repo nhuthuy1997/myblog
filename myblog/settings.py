@@ -28,6 +28,8 @@ STATIC_DIR = os.path.join(BASE_DIR,'static')
 
 MEDIA_DIR = os.path.join(BASE_DIR,'media')
 
+DATA_DIR = os.path.join(BASE_DIR,'vi.vec')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -53,6 +55,7 @@ INSTALLED_APPS = [
     'django_rq',
     'crawler',
     'mysite',
+    'summarior',
 ]
 
 MIDDLEWARE = [
@@ -155,3 +158,5 @@ MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [STATIC_DIR,]
+
+LOGIN_URL = '/login/'

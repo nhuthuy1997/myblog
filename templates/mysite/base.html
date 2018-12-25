@@ -2,22 +2,43 @@
 <head>
   <meta charset="utf-8">
 	{% load static %}
-	<link rel="stylesheet" href="{% static 'stylesheets/style.css' %}">
-	<link rel="stylesheet" href="{% static 'stylesheets/bootstrap.min.css' %}">
-	<link rel="stylesheet" href="{% static 'stylesheets/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'stylesheets/style.css' %}"/>
+	<link rel="stylesheet" href="{% static 'stylesheets/bootstrap.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'stylesheets/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'stylesheets/toastr.min.css' %}"/>
+	<!--CSS for login-->
+	<link rel="stylesheet" href="{% static 'stylesheets/main.css' %}"/>
+	<link rel="stylesheet" href="{% static 'stylesheets/util.css' %}"/>
+	<!--end CSS for login-->
 </head>
 <body>
-	{% include "mysite/_header.html" %}
+	{% url 'mysite:login' as login_url %}
+	{% url 'mysite:registrator' as register_url %}
+	{% if request.path == login_url or request.path == register_url %}
+		{% block login %}{% endblock %}
+	{% else %}
+		{% include "mysite/_header.html" %}
+		
+		<div class="clearfix"></div>
+		<div class="container">
+			{% block content %}{% endblock %}
+			<center>
+				<img class="loading-post" src="{% static 'images/loading-post.gif' %}" height="100px">
+			</center>
+		</div>
+		
+		{% include "mysite/_modal_filter.html" %}
+	{% endif %}
 	
-	<div class="clearfix"></div>
-  <div class="container">
-		{% block content %}{% endblock %}
-	</div>
-	
+
 	<footer>
 		<script type="text/javascript" src="{% static 'javascripts/jquery.min.js' %}"></script>
-		<script type="text/javascript" src="{% static 'javascripts/javascripts.js' %}"></script>
 		<script type="text/javascript" src="{% static 'javascripts/bootstrap.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'javascripts/toastr.js' %}"></script>
+		<!--JS for login-->
+		<script type="text/javascript" src="{% static 'javascripts/main.js' %}"></script>
+		<!--end JS for login-->
+		<script type="text/javascript" src="{% static 'javascripts/javascripts.js' %}"></script>
 	</footer>
 </body>
 </html>

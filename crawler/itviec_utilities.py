@@ -6,7 +6,7 @@ from django.conf import settings
 import random
 from django.db.utils import IntegrityError
 
-source = SourceInfo.objects.get(name='J')
+source = SourceInfo.objects.get(name='I')
 
 def store_tag(tag):
   name = tag.get_text()

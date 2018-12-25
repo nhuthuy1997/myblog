@@ -12,7 +12,7 @@ from . import viblo_utilities, techblog_utilities, jamviet_utilities, itviec_uti
 
 import pdb
 
-queue = django_rq.get_queue('default')
+# queue = django_rq.get_queue('default')
 
 # job = queue.enqueue(get_page_content, 'https://viblo.asia')
 

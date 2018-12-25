@@ -1,0 +1,4 @@
+{% for tag in all_tags %}
+  <span class="label label-{{ tag.get_color_display }} description">{{ tag.name }}</span>
+  <input type="hidden" value="{{ tag.hash_name }}">
+{% endfor %} 

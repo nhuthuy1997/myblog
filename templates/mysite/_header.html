@@ -1,14 +1,22 @@
 <header>
   <h1>My Blog</h1>
   <nav>
-    <a href="#">Homepage</a>
-    <a href="#">Clips</a>
-    <a href="#">Favorites</a>
+    <a href="{% url 'mysite:homepage'%}">Homepage</a>
+    <a href="{% url 'mysite:clip' %}">Clips</a>
+    <a href="{% url 'mysite:favorites' %}">Favorites</a>
 
     <a href="#" class="filter-btn" data-toggle="modal" data-target="#filter-modal">Filter</a>
     <form class="search-form">
       <input class="search-text" type="text" name="search-text" placeholder="Search">
     </form>
     <a href="#" class="search-btn">Search</a>
+    {% if user.is_authenticated %}
+      <a class="">Hello {{ user.username }}</a>
+      <a href="#" class="settings-btn" data-toggle="modal" data-target="#filter-modal">Settings</a>
+      <a href="{% url 'mysite:logout' %}" class="">Log out</a>
+    {% else %}
+      <a href="{% url 'mysite:login' %}" class="">Log in</a>
+      <a href="{% url 'mysite:registrator' %}" class="">Register</a>
+    {% endif %}
   </nav>
 </header>

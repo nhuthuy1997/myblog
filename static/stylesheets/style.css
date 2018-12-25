@@ -31,9 +31,9 @@ article {
   min-height: 150px;
   margin-bottom: 30px;
   background-color: #fff;
-  -moz-border-radius: 150px;
-  -webkit-border-radius: 150px;
-  border-radius: 150px;
+  -moz-border-radius: 80px;
+  -webkit-border-radius: 80px;
+  border-radius: 80px;
 }
 article a:hover {
   text-decoration: none;
@@ -133,6 +133,10 @@ article:hover .img-wrapper img {
 .tags {
   margin: 0 0 15px;
   padding: 0 0 15px;
+}
+
+.summary {
+  padding: 0 0 10px;
 }
 
 /* Load more button */
@@ -266,6 +270,7 @@ body.sticky-header header h1 {
 .label {
   float: left;
   margin: 2px;
+  cursor: pointer !important;
 }
 
 .search-form {
@@ -286,6 +291,7 @@ body.sticky-header header h1 {
  
 .filter-tags {
   margin: 0 0 15px;
+  min-height: 400px !important;
 }
 
  .filter-search {
@@ -302,3 +308,29 @@ body.sticky-header header h1 {
   margin: 2px 2px;
   float: left;
 }*/
+
+/* clip */
+.clip {
+  padding: 6px;
+  background: #3498db;
+  border-radius: 10px;
+  color: #fff;
+  transition: all 1s;
+}
+
+.clip:hover {
+  color: #005ce6;
+  background: #fff;
+}
+
+.clipped {
+  color: #3498db;
+  background: #fff;
+}
+
+/* loading*/
+#loading-img {
+  width: 100%;
+  position: absolute;
+  opacity: .8;
+}

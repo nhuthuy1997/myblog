@@ -1,0 +1,21 @@
+{% load static %}
+{% for post in post_list %}
+  <article>
+    <div class="img-wrapper"><img src="{% static post.source_info.image %}" alt="" /></div>
+    <div class="article-head">
+        <a href="{% url 'mysite:clip_post' post.hash_title %}">
+          <i class="clip clipjs fa fa-paperclip"></i>
+        </a>
+      <a href="{{ post.link}}"><span class="title">{{ post.title }}</span></a>
+    </div>
+    <div class="tags">
+      {% for tag in post.tags.all %}
+        <span class="label label-{{ tag.get_color_display }}">{{ tag.name }}</span>
+      {% endfor %}
+    </div>
+    <div class="clearfix"></div>
+    <div class="summary">
+      <p>{{ post.summary }}</p>
+    </div>
+  </article>
+{% endfor %}
